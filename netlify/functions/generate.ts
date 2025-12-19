@@ -58,7 +58,19 @@ Responda SOMENTE em JSON válido.
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
     const cleaned = text.replace(/```json|```/g, "").trim();
-    const parsed = JSON.parse(cleaned);
+
+    let parsed;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          error: "Resposta do Gemini não veio em JSON válido",
+          raw: cleaned,
+        }),
+      };
+    }
 
     return {
       statusCode: 200,
