@@ -4,7 +4,7 @@ import type { TrainingRecommendation } from "../types/recommendation";
 export async function generateRecommendation(
   profile: UserProfile
 ): Promise<TrainingRecommendation> {
-  const response = await fetch("/api/generate", {
+  const response = await fetch("/.netlify/functions/generate", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
