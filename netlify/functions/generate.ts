@@ -57,9 +57,12 @@ Responda SOMENTE em JSON válido.
     const data = await response.json();
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
+    const cleaned = text.replace(/```json|```/g, "").trim();
+    const parsed = JSON.parse(cleaned);
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ result: text }),
+      body: JSON.stringify(parsed),
     };
   } catch (error) {
     console.error(error);
@@ -69,4 +72,3 @@ Responda SOMENTE em JSON válido.
     };
   }
 };
-

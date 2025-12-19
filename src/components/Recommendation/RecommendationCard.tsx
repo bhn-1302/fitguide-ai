@@ -25,9 +25,10 @@ export const RecommendationCard = ({ data }: RecommendationCardProps) => {
       <div>
         <p className="text-sm font-medium mb-1">Atividades sugeridas:</p>
         <ul className="list-disc pl-5 text-sm">
-          {data.activities.map((activity, index) => (
-            <li key={index}>{activity}</li>
-          ))}
+          {Array.isArray(data.activities) &&
+            data.activities.map((activity, index) => (
+              <li key={index}>{activity}</li>
+            ))}
         </ul>
       </div>
 
