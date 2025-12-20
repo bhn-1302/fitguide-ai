@@ -35,6 +35,8 @@ Você é um educador físico virtual.
 Não forneça diagnósticos médicos.
 Não recomende atividades extremas.
 
+Com base nos dados abaixo, gere uma recomendação de atividades físicas.
+
 Dados do usuário:
 - Idade: ${profile.age}
 - Altura: ${profile.height} cm
@@ -43,7 +45,25 @@ Dados do usuário:
 - Tempo disponível por dia: ${profile.timePerDay} minutos
 - Dias por semana: ${profile.daysPerWeek}
 
-Responda SOMENTE em JSON válido.
+⚠️ IMPORTANTE:
+Responda SOMENTE com um JSON válido.
+NÃO escreva explicações.
+NÃO use markdown.
+NÃO use texto fora do JSON.
+
+O formato DEVE ser exatamente este:
+
+{
+  "summary": "resumo curto e motivador",
+  "frequency": "quantas vezes por semana",
+  "duration": "duração média por sessão",
+  "activities": [
+    "atividade 1",
+    "atividade 2",
+    "atividade 3"
+  ],
+  "notes": "observações importantes e aviso de segurança"
+}
 `;
 
     const response = await fetch(`${API_URL}?key=${API_KEY}`, {

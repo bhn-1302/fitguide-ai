@@ -1,14 +1,9 @@
 import type { UserProfile } from "../types/user";
-import type { TrainingRecommendation } from "../types/recommendation";
 
-export async function generateRecommendation(
-  profile: UserProfile
-): Promise<TrainingRecommendation> {
+export async function generateRecommendation(profile: UserProfile) {
   const response = await fetch("/.netlify/functions/generate", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ profile }),
   });
 
@@ -18,3 +13,4 @@ export async function generateRecommendation(
 
   return response.json();
 }
+
