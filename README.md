@@ -4,6 +4,10 @@ FitGuide IA é uma aplicação mobile-first que utiliza Inteligência Artificial
 
 O projeto foi desenvolvido com foco em experiência do usuário, simplicidade e boas práticas de frontend, sendo ideal para uso em dispositivos móveis.
 
+## Demonstração prática
+
+<img src="./public/gifs/gif-fitguideapi.gif" alt="demonstração do projeto em funcionamento">
+
 ## 🚀 Funcionalidades
 
 - Interface Mobile-First
